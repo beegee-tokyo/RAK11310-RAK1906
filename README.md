@@ -1,6 +1,6 @@
 # WisBlock RAK11310 Environment Sensor
 
-| <img src="./assets/RAK-Whirls.png" alt="Modules" width="150"> | <img src="./assets/rakstar.jpg" alt="RAKstar" width="100"> |   
+| <img src="./assets/RAK-Whirls.png" alt="RAKwireless" width="150"> | <img src="./assets/rakstar.jpg" alt="RAKstar" width="100"> |   
 | :-: | :-: |    
 
 Environment Sensor _**Built With RAK WisBlock**_ modules.  
@@ -28,7 +28,7 @@ The application is _"sleeping"_ as much as possible, waiting for a signal coming
 ----
 
 # Dataflow
-The sensor wakes up every 1 minute (configurable) and measures the temperature, humidity, barometric pressure and gas resistence (can be used to calculate Air Quality Index). The application It packs the data into a data package in [Cayenne LPP format](https://community.mydevices.com/t/cayenne-lpp-2-0/7510) and includes:    
+The sensor wakes up every 1 minute (configurable) and measures the temperature, humidity, barometric pressure and gas resistence (can be used to calculate Air Quality Index). The application packs the data into a data package in [Cayenne LPP format](https://community.mydevices.com/t/cayenne-lpp-2-0/7510) that includes:    
 - Temperature ( channel 01, id 0x68 )
 - Humidity ( channel 02, id 0x67 )
 - Barometric pressure (chanel 03, id 0x73 )
@@ -58,11 +58,14 @@ uint8_t batt_1 = 0;		   // 18
 uint8_t batt_2 = 0;		   // 19
 ```
 
-The data is sent as a LPWAN packet over a [LoRaWAN gateway](https://store.rakwireless.com/collections/wisgate-edge) to a LoRaWAN server. In this example I used my local Chirpstack LPWAN server, but it can be as well a TTN V3 server or the Helium Console.
+The data is sent as a LPWAN packet over a [LoRaWAN gateway](https://store.rakwireless.com/collections/wisgate-edge) to a LoRaWAN server. In this example I used my local Chirpstack LPWAN server, but it can be as well a TTN V3 server, the Helium Console or any other LNS.
 
 The Chirpstack LPWAN server has two integrations enabled:
 - Datacake. Instructions can be found in [Chirpstack to Datacake tutorial](https://news.rakwireless.com/how-to-visualize-your-sensor-data-on-datacake-using-chirpstack-server/)
 - Cayenne LPP MyDevices    
+
+Example data from Datacake:
+<img src="./assets/datacake.png" alt="Datacake">
 
 ----
 
